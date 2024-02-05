@@ -155,3 +155,22 @@ footer {
     width: 220px;
     cursor: pointer;
 }
+
+.column3 {
+    width: 200px;
+    margin-left: 50px;
+}
+
+.column3 p {
+    font-size: 19px;
+    margin-bottom: 25px;
+}
+
+.track-eraser {
+    display: block;
+}
+
+.mini {
+    width: 80px;
+    cursor: pointer;
+}
