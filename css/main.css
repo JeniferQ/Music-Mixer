@@ -44,3 +44,37 @@ main {
 .image {
     width: 700px;
 }
+
+.top-buttons {
+    position: absolute;
+    display: flex;
+    top: 33%;
+    left: 37%;
+}
+
+.click {
+    background-color: rgb(61, 61, 61);
+    color: #fff;
+    padding: 10px 18px;
+}
+
+.cdplayer-contents {
+    position: absolute;
+    top: 35%;
+    display: flex;
+}
+
+.speaker {
+    margin: 40px 20px;
+    width: 180px;
+    padding: 0 30px;
+}
+
+#viewer {
+    margin-top: 70px;
+    background-color: black;
+    color: #fff;
+    border: 5px solid white;
+    padding: 40px 0;
+    width: 130px;
+}
