@@ -30,3 +30,17 @@ header p {
 #bc {
     background-color: rgb(31, 31, 31);
 }
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.cdplayer {
+    position: relative;
+    text-align: center;
+}
+
+.image {
+    width: 700px;
+}
