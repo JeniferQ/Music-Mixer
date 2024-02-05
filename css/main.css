@@ -106,3 +106,13 @@ footer {
 .column1 p {
     font-size: 20px;
 }
+
+.track-selector {
+    display: inline;
+}
+
+.track {
+    width: 115px;
+    padding: 0 10px 15px 0;
+    cursor: pointer;
+}
