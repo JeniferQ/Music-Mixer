@@ -78,3 +78,31 @@ main {
     padding: 40px 0;
     width: 130px;
 }
+
+footer {
+    margin-top: 50px;
+    padding: 30px 0;
+    background-color: black;
+    color: white;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.column1 {
+    width: 550px;
+    border-right: 3px solid white;
+}
+
+#bottom-bubble {
+    margin-top: 15px;
+    padding: 20px 40px;
+    background-color: rgb(70, 70, 70);
+    font-size: 25px;
+    border-radius: 30px;
+    width: 160px;
+}
+
+.column1 p {
+    font-size: 20px;
+}
