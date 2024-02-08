@@ -1,0 +1,13 @@
+Music Mixer Audio Research
+
+Function: The user will create a song with 8 possible instrumental tracks. 
+
+Tracks needed: Violin, Drums, Tuba, Flute, Guitar, Piano, Bass and Sax.
+
+Possible sources: 
+
+https://uppbeat.io/
+https://pixabay.com/
+https://www.chosic.com
+https://ncs.io/
+https://www.youtube.com/
