@@ -16,7 +16,8 @@ Load the website and play!
 5. Submit a pull request :D
 
 ## History
-January 2024
+
+February 2024
 
 ## Credits
 Jenifer Quelali Evangelista
