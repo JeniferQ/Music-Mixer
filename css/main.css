@@ -4,6 +4,10 @@ html, body {
     font-family: Tahoma;
 }
 
+audio {
+    display: block;
+}
+
 .hidden {
     display: none;
 }
@@ -310,5 +314,6 @@ html, body {
         padding-left: 4vw;
         width: 100%;
     }
+  
 
 }
