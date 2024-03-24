@@ -3,6 +3,7 @@ const musicTracks = document.querySelectorAll(".track-selector img"),
     pauseButton = document.querySelectorAll('.pause'),
     restartButton = document.querySelectorAll('.restart'),
     audioElement = document.querySelector('#audio'),
+    cd = document.querySelectorAll('.cd'),
 	playerDropZone = document.querySelector('.player-zone');
 
 let draggedPiece;
@@ -13,22 +14,30 @@ function startThisAudio() {
     audioElement.src = currentSrc;    
 
     audioElement.load();
-    playThisAudio();
+    play();
 
     console.log('user is playing the', this.dataset.trackref);
 }
 
 function play() { 
-    audioElement.play(); 
+    audioElement.play();
+    playerDropZone.style.animation = "beat 1s infinite ease-in-out";
+    cd.forEach(cd => cd.style.animation = "spin 1s infinite linear");
 }
 
 function pause() { 
-    audioElement.pause(); 
+    audioElement.pause();
+    
+    playerDropZone.style.animation = "";
+    cd.forEach(cd => cd.style.animation = "");
 }
 
 function restart() { 
     audioElement.currentTime = 0; 
-    playThisAudio(); 
+    play();
+
+    playerDropZone.style.animation = "beat 1s infinite ease-in-out";
+    cd.forEach(cd => cd.style.animation = "spin 1s infinite linear");
 }
 
 function startDrag() {
