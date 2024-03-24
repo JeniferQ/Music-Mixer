@@ -79,6 +79,20 @@ audio {
     padding: 40px 30px;
 }
 
+@keyframes beat {
+    0% {
+        position: relative;
+    }
+
+    50% {
+        transform: scale(1.02, 1.02);
+    }
+
+    100% {
+        position: relative;
+    }
+}
+
 .bottom-instruction {
     padding-top: 50px;
 }
@@ -100,6 +114,10 @@ audio {
     margin-bottom: 30px;
 }
 
+.track-selector img:hover {
+    animation: beat 1s infinite ease-in-out;
+}
+
 .buttons {
     text-align: center;
 }
@@ -118,7 +136,19 @@ audio {
 }
 
 .cd {
-    margin: 0 50px;
+    margin: 10px 50px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Tablet Grid */
@@ -189,6 +219,7 @@ audio {
 
     .mobile-grid {
         display: none;
+        position: sticky;
     }
 
     .top-instruction {
@@ -230,7 +261,6 @@ audio {
     
     .cd {
       margin: 0;
-      padding-left: 2vw;
       width: 100%;
     }
 
@@ -305,15 +335,17 @@ audio {
     }
 
     .buttons button {
-        padding: 10px 15px;
+        padding: 10px 20px;
         font-size: 16px;
+    }
+
+    .buttons button:first-child {
+        margin-left: 3vw;
     }
 
     .cd {
         margin: 0;
-        padding-left: 4vw;
         width: 100%;
     }
-  
 
 }
