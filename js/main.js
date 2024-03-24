@@ -2,21 +2,21 @@ const musicTracks = document.querySelectorAll(".track-selector img"),
     playButton = document.querySelectorAll('.play'),
     pauseButton = document.querySelectorAll('.pause'),
     restartButton = document.querySelectorAll('.restart'),
-    audioElement = document.querySelector('#audio'),
     cd = document.querySelectorAll('.cd'),
+    trackElement = document.createElement("audio"),
 	playerDropZone = document.querySelector('.player-zone');
 
 let draggedPiece;
+    audioElementList = [];
 
-function startThisAudio() {
-    let currentSrc = `audio/${this.dataset.trackref}.mp3`;
-            
-    audioElement.src = currentSrc;    
+function trackPlay() {
+    trackElement.src = `audio/${this.dataset.trackref}.mp3`;
+    trackElement.loop = true;
+    trackElement.play();
 
-    audioElement.load();
-    play();
-
-    console.log('user is playing the', this.dataset.trackref);
+    playerDropZone.style.animation = "";
+    cd.forEach(cd => cd.style.animation = "");
+    console.log ('user is playing the', this.dataset.trackref);
 }
 
 function play() { 
@@ -56,7 +56,7 @@ function endDrag(e) {
 }
 
 
-musicTracks.forEach(track => track.addEventListener('click', startThisAudio));
+musicTracks.forEach(track => track.addEventListener('click', trackPlay));
 musicTracks.forEach(track => track.addEventListener("dragstart", startDrag));
 document.getElementById("audio").loop = true;
 
