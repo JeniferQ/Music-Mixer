@@ -52,20 +52,24 @@ function trackPlay() {
 }
 
 function play() { 
-    audioElement.play();
+    audioElementList.forEach(audio => audio.play());
+    trackElement.play();
+    
     playerDropZone.style.animation = "beat 1s infinite ease-in-out";
     cd.forEach(cd => cd.style.animation = "spin 1s infinite linear");
 }
 
 function pause() { 
-    audioElement.pause();
-    
+    audioElementList.forEach(audio => audio.pause());
+    trackElement.pause();
+
     playerDropZone.style.animation = "";
     cd.forEach(cd => cd.style.animation = "");
 }
 
 function restart() { 
-    audioElement.currentTime = 0; 
+    audioElementList.forEach(audio => audio.currentTime = 0);
+    trackElement.currentTime = 0;
     play();
 
     playerDropZone.style.animation = "beat 1s infinite ease-in-out";
