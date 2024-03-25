@@ -9,6 +9,38 @@ const musicTracks = document.querySelectorAll(".track-selector img"),
 let draggedPiece;
     audioElementList = [];
 
+function startDrag() {
+    console.log('user started dragging an audio');
+    draggedPiece = this;
+}
+    
+function dragOver(e) {
+    e.preventDefault();
+    console.log('user is dragging an audio over the zone');
+}
+    
+function endDrag(e) {
+    e.preventDefault();
+    console.log('user has dropped the audio');
+
+    const dropped = draggedPiece.dataset.trackref;
+    playAudio(dropped);
+}
+
+function playAudio(dropped) {
+    const audioElement = document.createElement("audio");
+
+    audioElement.src = `audio/${dropped}.mp3`;
+    audioElement.loop = true;
+    audioElement.play();
+    audioElementList.push(audioElement);
+    playerDropZone.appendChild(audioElement);   
+
+    playerDropZone.style.animation = "beat 1s infinite ease-in-out";
+    cd.forEach(cd => cd.style.animation = "spin 1s infinite linear");
+    console.log('now playing:', dropped);
+}
+
 function trackPlay() {
     trackElement.src = `audio/${this.dataset.trackref}.mp3`;
     trackElement.loop = true;
@@ -39,22 +71,6 @@ function restart() {
     playerDropZone.style.animation = "beat 1s infinite ease-in-out";
     cd.forEach(cd => cd.style.animation = "spin 1s infinite linear");
 }
-
-function startDrag() {
-    console.log('user started dragging an audio');
-    draggedPiece = this;
-}
-    
-function dragOver(e) {
-    e.preventDefault();
-    console.log('user is dragging an audio over the zone');
-}
-    
-function endDrag(e) {
-    e.preventDefault();
-    console.log('user has dropped the audio');
-}
-
 
 musicTracks.forEach(track => track.addEventListener('click', trackPlay));
 musicTracks.forEach(track => track.addEventListener("dragstart", startDrag));
