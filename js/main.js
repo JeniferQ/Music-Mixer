@@ -57,7 +57,7 @@ function trackPlay() {
     trackElement.play();
 
     playerDropZone.style.animation = "";
-    cd.forEach(cd => cd.style.animation = "");
+    cd.forEach(cd => cd.style.animation = "spin 1s infinite linear");
     console.log ('user is playing the', this.dataset.trackref);
 }
 
@@ -94,7 +94,7 @@ function clear() {
     audioElementList = [];
 
     playerDropZone.style.animation = "";
-    cd.forEach(cd => cd.style.animation = "spin 1s infinite linear");
+    cd.forEach(cd => cd.style.animation = "");
 }
 
 musicTracks.forEach(track => track.addEventListener('click', trackPlay));
