@@ -2,6 +2,7 @@ const musicTracks = document.querySelectorAll(".track-selector img"),
     playButton = document.querySelectorAll('.play'),
     pauseButton = document.querySelectorAll('.pause'),
     restartButton = document.querySelectorAll('.restart'),
+    clearButton = document.querySelectorAll('.clear'),
     cd = document.querySelectorAll('.cd'),
     trackElement = document.createElement("audio"),
     playerDropZone = document.querySelector('.player-zone');
@@ -50,6 +51,7 @@ function playAudio(dropped) {
 }
 
 function trackPlay() {
+    clear();
     trackElement.src = `audio/${this.dataset.trackref}.mp3`;
     trackElement.loop = true;
     trackElement.play();
@@ -84,12 +86,24 @@ function restart() {
     cd.forEach(cd => cd.style.animation = "spin 1s infinite linear");
 }
 
+function clear() {
+    pause();
+    trackElement.src = "";
+    audioElementList.splice(0, audioElementList.length);
+    audioCheckList = [];
+    audioElementList = [];
+
+    playerDropZone.style.animation = "";
+    cd.forEach(cd => cd.style.animation = "spin 1s infinite linear");
+}
+
 musicTracks.forEach(track => track.addEventListener('click', trackPlay));
 musicTracks.forEach(track => track.addEventListener("dragstart", startDrag));
 
 playButton.forEach(button => button.addEventListener('click', play));
 pauseButton.forEach(button => button.addEventListener('click', pause));
 restartButton.forEach(button => button.addEventListener('click', restart));
+clearButton.forEach(button => button.addEventListener('click', clear));
 
 playerDropZone.addEventListener("dragover", dragOver);
 playerDropZone.addEventListener("drop", endDrag);
