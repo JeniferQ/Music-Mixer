@@ -4,10 +4,11 @@ const musicTracks = document.querySelectorAll(".track-selector img"),
     restartButton = document.querySelectorAll('.restart'),
     cd = document.querySelectorAll('.cd'),
     trackElement = document.createElement("audio"),
-	playerDropZone = document.querySelector('.player-zone');
+    playerDropZone = document.querySelector('.player-zone');
 
-let draggedPiece;
-    audioElementList = [];
+let draggedPiece,
+    audioElementList = [],
+    audioCheckList = []; 
 
 function startDrag() {
     console.log('user started dragging an audio');
@@ -22,9 +23,16 @@ function dragOver(e) {
 function endDrag(e) {
     e.preventDefault();
     console.log('user has dropped the audio');
-
+    
     const dropped = draggedPiece.dataset.trackref;
-    playAudio(dropped);
+    if (!audioCheckList.includes(dropped)) {
+        playAudio(dropped);
+        audioCheckList.push(dropped);
+        trackElement.pause();
+    }
+    else {
+        console.log('This audio is already in the player.');
+    }
 }
 
 function playAudio(dropped) {
@@ -54,7 +62,7 @@ function trackPlay() {
 function play() { 
     audioElementList.forEach(audio => audio.play());
     trackElement.play();
-    
+
     playerDropZone.style.animation = "beat 1s infinite ease-in-out";
     cd.forEach(cd => cd.style.animation = "spin 1s infinite linear");
 }
@@ -70,7 +78,7 @@ function pause() {
 function restart() { 
     audioElementList.forEach(audio => audio.currentTime = 0);
     trackElement.currentTime = 0;
-    play();
+    play(); 
 
     playerDropZone.style.animation = "beat 1s infinite ease-in-out";
     cd.forEach(cd => cd.style.animation = "spin 1s infinite linear");
@@ -78,7 +86,6 @@ function restart() {
 
 musicTracks.forEach(track => track.addEventListener('click', trackPlay));
 musicTracks.forEach(track => track.addEventListener("dragstart", startDrag));
-document.getElementById("audio").loop = true;
 
 playButton.forEach(button => button.addEventListener('click', play));
 pauseButton.forEach(button => button.addEventListener('click', pause));
