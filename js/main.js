@@ -63,7 +63,9 @@ function trackPlay() {
 
 function play() { 
     audioElementList.forEach(audio => audio.play());
-    trackElement.play();
+    if (audioElementList.length == 0) {
+        trackElement.play();
+    }
 
     playerDropZone.style.animation = "beat 1s infinite ease-in-out";
     cd.forEach(cd => cd.style.animation = "spin 1s infinite linear");
@@ -92,6 +94,8 @@ function clear() {
     audioElementList.splice(0, audioElementList.length);
     audioCheckList = [];
     audioElementList = [];
+
+    trackElement.load();
 
     playerDropZone.style.animation = "";
     cd.forEach(cd => cd.style.animation = "");
